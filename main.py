@@ -35,6 +35,7 @@ def main():
         QUANTIDADE_ENTRADA_USDT = pair["value"]
         CANDLE_TIME = pair["interval"]
 
+        print("\n==============================================")
         log_action(
             "BOT INICIADO",
             f"Par: {PAIR}, SMA Curta: {SHORT_SMA_PERIOD}, SMA Longa: {LONG_SMA_PERIOD}, Entrada USDT: {QUANTIDADE_ENTRADA_USDT}",
@@ -56,13 +57,13 @@ def main():
             available_COIN = check_balance(COIN)
             sma_short, sma_long = calculate_smas(data)
             rsi = calculate_rsi(data)
-            print("\n==============================================")
             print(f"Preço atual: {current_price:.8f}")
             print(f"USDT disponível: {available_usdt:.2f}")
             print(f"{COIN} disponível: {available_COIN:.0f}")
             print(f"RSI: {rsi:.2f}")
             print(f"SMA Curta: {sma_short:.8f}")
             print(f"SMA Longa: {sma_long:.8f}")
+            print("\n==============================================")
 
             # Calcular a quantidade de moeda que podemos comprar com o USDT definido
             coin_quantity = QUANTIDADE_ENTRADA_USDT / current_price
